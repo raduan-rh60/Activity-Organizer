@@ -1,0 +1,399 @@
+/**************** banner part css start ****************/
+/* line 2, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+:host{
+    display: block!important;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.banner_part {
+    position: relative;
+    background-image: url("/assets/banner_bg.png");
+    background-repeat: no-repeat;
+    background-size: 65vw 100vh;
+    background-position: left top;
+  }
+  
+  @media (max-width: 991px) {
+    /* line 2, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part {
+      background-image: none;
+    }
+  }
+  
+  @media only screen and (min-width: 900px) and (max-width: 1200px) {
+    /* line 2, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part {
+      background-image: none;
+    }
+  }
+  
+  /* line 16, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+  .banner_part .banner_text {
+    display: table;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  /* line 21, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+  .banner_part .banner_text .banner_text_iner {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 15%;
+  }
+  
+  @media (max-width: 991px) {
+    /* line 21, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .banner_text .banner_text_iner {
+      padding-top: 30%;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    /* line 21, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .banner_text .banner_text_iner {
+      height: 650px;
+      padding-top: 0;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    /* line 16, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .banner_text {
+      height: 650px;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    /* line 16, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .banner_text {
+      height: 650px;
+      margin-left: 10%;
+    }
+  }
+  
+  /* line 44, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+  .banner_part .banner_text h1 {
+    font-size: 70px;
+    text-transform: capitalize;
+    font-weight: 700;
+    margin-bottom: 40px;
+    line-height: 70px;
+  }
+  
+  @media (max-width: 576px) {
+    /* line 44, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .banner_text h1 {
+      font-size: 25px;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+  }
+  
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    /* line 44, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .banner_text h1 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* line 44, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .banner_text h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    /* line 44, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .banner_text h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+  }
+  
+  /* line 75, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+  .banner_part .banner_text h1 span {
+    color: #ff4800;
+  }
+  
+  /* line 80, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+  .banner_part .banner_text p {
+    font-family: "Rajdhani", sans-serif;
+    margin-bottom: 42px;
+    padding-right: 110px;
+  }
+  
+  @media (max-width: 991px) {
+    /* line 80, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .banner_text p {
+      padding-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    /* line 80, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .banner_text p {
+      padding-right: 0;
+    }
+  }
+  
+  /* line 96, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+  .banner_part .feature_icon_1 {
+    position: absolute;
+    right: 10%;
+    top: 0%;
+    z-index: -1;
+  }
+  
+  @media (max-width: 991px) {
+    /* line 96, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .feature_icon_1 {
+      display: none;
+    }
+  }
+  
+  /* line 106, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+  .banner_part .feature_icon_2 {
+    position: absolute;
+    right: 30%;
+    top: 10%;
+    z-index: -1;
+  }
+  
+  /* line 113, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+  .banner_part .feature_icon_3 {
+    position: absolute;
+    right: 10%;
+    top: 35%;
+    z-index: -1;
+  }
+  
+  @media (max-width: 991px) {
+    /* line 113, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .feature_icon_3 {
+      display: none;
+    }
+  }
+  
+  /* line 123, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+  .banner_part .feature_icon_4 {
+    position: absolute;
+    right: 30%;
+    top: 45%;
+    z-index: -1;
+  }
+  
+  /* line 130, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+  .banner_part .feature_icon_5 {
+    position: absolute;
+    right: 15%;
+    bottom: 20%;
+    z-index: -1;
+  }
+  
+  /* line 137, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+  .banner_part .feature_icon_6 {
+    position: absolute;
+    right: 50%;
+    bottom: 5%;
+    z-index: -1;
+  }
+  
+  @media (max-width: 991px) {
+    /* line 137, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
+    .banner_part .feature_icon_6 {
+      display: none;
+      bottom: 0%;
+    }
+  }
+
+
+
+
+
+  /* Animaitons CSS */
+  .custom-animation1 {
+    backface-visibility: hidden;
+    animation: jumping 9s ease-in-out 2s infinite alternate;
+    animation-delay: 1s;
+    transition: all .9s ease 5s;
+    user-select: none;
+  }
+  
+  /* line 260, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
+  .custom-animation2 {
+    backface-visibility: hidden;
+    animation: jumping2 9s ease-in-out 2s infinite alternate;
+    animation-delay: 1s;
+    transition: all 1s ease 3s;
+    user-select: none;
+  }
+  
+  /* line 268, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
+  .custom-animation3 {
+    backface-visibility: hidden;
+    animation: jumping3 9s ease-in-out 2s infinite alternate;
+    animation-delay: 1s;
+    transition: all 7s ease 2s;
+    user-select: none;
+  }
+  
+  /* line 276, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
+  .custom-animation4 {
+    backface-visibility: hidden;
+    animation: jumping4 9s ease-in-out 2s infinite alternate;
+    animation-delay: 1s;
+    transition: all 8s ease 4s;
+    user-select: none;
+  }
+  
+  /* line 284, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
+  .custom-animation5 {
+    backface-visibility: hidden;
+    animation: jumping5 9s ease-in-out 2s infinite alternate;
+    animation-delay: 1s;
+    transition: all 8s ease 4s;
+    user-select: none;
+  }
+  
+  /* line 292, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
+  .custom-animation6 {
+    backface-visibility: hidden;
+    animation: jumping6 9s ease-in-out 2s infinite alternate;
+    animation-delay: 1s;
+    transition: all 8s ease 4s;
+    user-select: none;
+  }
+
+
+  /* anymation path css */
+
+  @keyframes jumping {
+    0% {
+      transform: translateY(0px) translateX(0) rotate(0) scale(1);
+      opacity: .8;
+    }
+    25% {
+      transform: translateY(-10px) translateX(-10px) rotate(20deg) scale(0.8);
+      opacity: .9;
+    }
+    50% {
+      transform: translateY(-15px) translateX(-15px) rotate(10deg) scale(0.9);
+      opacity: .8;
+    }
+    75% {
+      transform: translateY(-20px) translateX(-20px) rotate(20deg) scale(0.75);
+      opacity: .6;
+    }
+    85% {
+      transform: translateY(-25px) translateX(-25px) rotate(20deg) scale(0.9);
+      opacity: .7;
+    }
+    100% {
+      transform: translateY(-15px) translateX(-15px) rotate(0) scale(0.95);
+      opacity: .85;
+    }
+  }
+  
+  @keyframes jumping2 {
+    0% {
+      transform: translateY(0px) translateX(0) rotate(0) scale(1);
+      opacity: .5;
+    }
+    25% {
+      transform: translateY(-30px) translateX(10px) rotate(20deg) scale(0.8);
+      opacity: .8;
+    }
+    50% {
+      transform: translateY(15px) translateX(-15px) rotate(10deg) scale(0.7);
+      opacity: .8;
+    }
+    75% {
+      transform: translateY(30px) translateX(20px) rotate(90deg) scale(0.75);
+      opacity: .7;
+    }
+    100% {
+      transform: translateY(-15px) translateX(15px) rotate(0) scale(0.75);
+      opacity: .9;
+    }
+  }
+  
+  @keyframes jumping3 {
+    0% {
+      transform: translateY(10px) translateX(0) rotate(0) scale(1);
+      opacity: .9;
+    }
+    20% {
+      transform: translateY(20px) translateX(10px) rotate(-20deg) scale(0.8);
+      opacity: .8;
+    }
+    40% {
+      transform: translateY(15px) translateX(-15px) rotate(10deg) scale(0.75);
+      opacity: .8;
+    }
+    40% {
+      transform: translateY(-15px) translateX(-25px) rotate(10deg) scale(0.5);
+      opacity: 1;
+    }
+    80% {
+      transform: translateY(-30px) translateX(20px) rotate(-20deg) scale(0.75);
+      opacity: .6;
+    }
+    100% {
+      transform: translateY(15px) translateX(15px) rotate(0) scale(0.95);
+      opacity: .7;
+    }
+  }
+  
+  @keyframes jumping4 {
+    0% {
+      transform: translateY(-30px) translateX(40px) rotate(0) scale(1.2);
+      opacity: .7;
+    }
+    25% {
+      transform: translateY(-20px) translateX(0px) rotate(50deg) scale(0.6);
+      opacity: .8;
+    }
+    50% {
+      transform: translateY(15px) translateX(-55px) rotate(20deg) scale(0.5);
+      opacity: .9;
+    }
+    75% {
+      transform: translateY(30px) translateX(30px) rotate(50deg) scale(0.75);
+      opacity: .7;
+    }
+    100% {
+      transform: translateY(-15px) translateX(5px) rotate(0) scale(0.5);
+      opacity: .9;
+    }
+  }
+  
+  @keyframes jumping5 {
+    0% {
+      transform: rotate(180deg);
+      display: block;
+    }
+    100% {
+      transform: rotate(30deg);
+      display: block;
+    }
+  }
+  
+  @keyframes jumping6 {
+    0% {
+      transform: rotate(180deg) translate(-50px, 20px);
+      display: block;
+    }
+    100% {
+      transform: rotate(30deg) translate(0px, 0px);
+      display: block;
+    }
+  }
+  
