@@ -1,0 +1,160 @@
+<div class="row p-5">
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Activity Title</h2>
+        <span class="text-secondary"><p>Created on 12,April,2024</p></span>
+      </div>
+      <div class="col-md-6 align-items-end text-end">
+        <button
+          class="btn btn-primary px-3 rounded-3"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Edit
+        </button>
+
+        <!-- Edit Form modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Edit Your Activity
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <!-- Edit Form -->
+                <div class="text-start">
+                  <label for="input1" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="input1" />
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="h4 pt-4">Events</div>
+                    </div>
+                    <div class="col-6 text-end pt-1">
+                      <button class="btn">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="48px"
+                          viewBox="0 -960 960 960"
+                          width="48px"
+                          fill="#5985E1"
+                        >
+                          <path
+                            d="M450-450H200v-60h250v-250h60v250h250v60H510v250h-60v-250Z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <hr />
+                  <table>
+                    <tr>
+                      <td class="delete">
+                        <button class="btn">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24px"
+                            viewBox="0 -960 960 960"
+                            width="24px"
+                            fill="#EA3323"
+                          >
+                            <path
+                              d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
+                            />
+                          </svg>
+                        </button>
+                      </td>
+                      <td>
+                        <label for="input1" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="input1" />
+                      </td>
+                      <td class="w-50">
+                        <label for="input1" class="form-label"
+                          >Description</label
+                        >
+                        <input type="text" class="form-control" id="input1" />
+                      </td>
+                      <td>
+                        <label for="input1" class="form-label"
+                          >Submit Date</label
+                        >
+                        <input
+                          type="datetime"
+                          class="form-control"
+                          id="input1"
+                        />
+                      </td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Edit Form Modal End -->
+      </div>
+    </div>
+    <!-- Events Body -->
+    <table class="table table-borderless">
+      <thead class="border-bottom">
+        <tr>
+          <th scope="col">Activity Name</th>
+          <th scope="col">Short Detail</th>
+          <th scope="col" class="text-end">Submit Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Submit Form</td>
+          <td>Submit the registration form with required documents</td>
+          <td class="text-end">2/10/2024</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-3 ps-4">
+    <div
+      class="toast show align-items-center text-white bg-success border-0"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <div class="d-flex">
+        <div class="toast-body">Edit Success Full.</div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,13 +5,16 @@ import { SignupComponent } from './Pages/signup/signup.component';
 import { NavbarComponent } from './Pages/Components/navbar/navbar.component';
 import { ShowAllCategroiesComponent } from './Pages/Components/show-all-categroies/show-all-categroies.component';
 import { MyActivitiesComponent } from './Pages/Components/my-activities/my-activities.component';
+import { AcitivityDetailsComponent } from './Pages/Components/acitivity-details/acitivity-details.component';
+import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
     {path:'',component:HomeComponent},
     {path:'login',component:LoginComponent},
     {path:'signup',component:SignupComponent},
-    {path:'dashboard',component:NavbarComponent,children:[
+    {path:'dashboard',component:DashboardComponent,children:[
         {path:'activities',component:ShowAllCategroiesComponent},
-        {path:'myactivity',component:MyActivitiesComponent}
+        {path:'myactivity',component:MyActivitiesComponent},
+        {path:'activity-details',component:AcitivityDetailsComponent}
     ]}
 ];

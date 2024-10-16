@@ -5,10 +5,16 @@
         <h4>Activities</h4>
 
         <div class="d-flex flex-row">
-          <button class="btn btn-primary">Add New</button>
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Add New
+          </button>
         </div>
       </div>
-      <div class="card">
+      <div class="card card-outer">
         <div class="row">
           <div class="inputs col-md-7 pb-5">
             <svg
@@ -24,7 +30,7 @@
             </svg>
             <input
               type="text"
-              class="form-control"
+              class="form-control form-control-search"
               placeholder="Search Activities..."
             />
           </div>
@@ -57,9 +63,10 @@
               <!-- END ORDER RESULT -->
             </div>
           </div>
-
+          <!-- Cardo Row Start -->
           <div class="row">
             <div class="col-lg-4">
+              <!-- Category Card Start -->
               <div class="card card-margin">
                 <div class="card-header no-border">
                   <h5 class="card-title">Categories</h5>
@@ -72,9 +79,7 @@
                         <span class="widget-49-date-month">apr</span>
                       </div>
                       <div class="widget-49-meeting-info">
-                        <span class="widget-49-pro-title"
-                          >Activity Title</span
-                        >
+                        <span class="widget-49-pro-title">Activity Title</span>
                         <span class="widget-49-meeting-time"
                           >Panding Events</span
                         >
@@ -82,10 +87,41 @@
                     </div>
                     <ol class="widget-49-meeting-points">
                       <span>Activity Short Description</span>
-                     
                     </ol>
                     <div class="widget-49-meeting-action">
-                      <a href="#" class="btn btn-sm btn-flash-border-primary"
+                      <a routerLink="../activity-details" class="btn btn-sm btn-outline-secondary px-4"
+                        >View Acticity</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Category Card End -->
+            </div>
+            <div class="col-lg-4">
+              <div class="card card-margin">
+                <div class="card-header no-border">
+                  <h5 class="card-title">Categories</h5>
+                </div>
+                <div class="card-body pt-0">
+                  <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                      <div class="widget-49-date-primary">
+                        <span class="widget-49-date-day">09</span>
+                        <span class="widget-49-date-month">apr</span>
+                      </div>
+                      <div class="widget-49-meeting-info">
+                        <span class="widget-49-pro-title">Activity Title</span>
+                        <span class="widget-49-meeting-time"
+                          >Panding Events</span
+                        >
+                      </div>
+                    </div>
+                    <ol class="widget-49-meeting-points">
+                      <span>Activity Short Description</span>
+                    </ol>
+                    <div class="widget-49-meeting-action">
+                      <a routerLink="../activity-details" class="btn btn-sm btn-outline-secondary px-4"
                         >View Acticity</a
                       >
                     </div>
@@ -106,9 +142,7 @@
                         <span class="widget-49-date-month">apr</span>
                       </div>
                       <div class="widget-49-meeting-info">
-                        <span class="widget-49-pro-title"
-                          >Activity Title</span
-                        >
+                        <span class="widget-49-pro-title">Activity Title</span>
                         <span class="widget-49-meeting-time"
                           >Panding Events</span
                         >
@@ -116,44 +150,9 @@
                     </div>
                     <ol class="widget-49-meeting-points">
                       <span>Activity Short Description</span>
-                     
                     </ol>
                     <div class="widget-49-meeting-action">
-                      <a href="#" class="btn btn-sm btn-flash-border-primary"
-                        >View Acticity</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="card card-margin">
-                <div class="card-header no-border">
-                  <h5 class="card-title">Categories</h5>
-                </div>
-                <div class="card-body pt-0">
-                  <div class="widget-49">
-                    <div class="widget-49-title-wrapper">
-                      <div class="widget-49-date-primary">
-                        <span class="widget-49-date-day">09</span>
-                        <span class="widget-49-date-month">apr</span>
-                      </div>
-                      <div class="widget-49-meeting-info">
-                        <span class="widget-49-pro-title"
-                          >Activity Title</span
-                        >
-                        <span class="widget-49-meeting-time"
-                          >Panding Events</span
-                        >
-                      </div>
-                    </div>
-                    <ol class="widget-49-meeting-points">
-                      <span>Activity Short Description</span>
-                     
-                    </ol>
-                    <div class="widget-49-meeting-action">
-                      <a href="#" class="btn btn-sm btn-flash-border-primary"
+                      <a routerLink="../activity-details" class="btn btn-sm btn-outline-secondary px-4"
                         >View Acticity</a
                       >
                     </div>
@@ -170,3 +169,93 @@
     </div>
   </div>
 </div>
+
+<!-- Add Form modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Your Activity</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Edit Form -->
+        <div class="text-start">
+          <label for="input1" class="form-label">Name</label>
+          <input type="text" class="form-control" id="input1" />
+          <div class="row">
+            <div class="col-6">
+              <div class="h4 pt-4">Events</div>
+            </div>
+            <div class="col-6 text-end pt-1">
+              <button class="btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="48px"
+                  viewBox="0 -960 960 960"
+                  width="48px"
+                  fill="#5985E1"
+                >
+                  <path
+                    d="M450-450H200v-60h250v-250h60v250h250v60H510v250h-60v-250Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <hr />
+          <table>
+            <tr>
+              <td class="delete">
+                <button class="btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#EA3323"
+                  >
+                    <path
+                      d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
+                    />
+                  </svg>
+                </button>
+              </td>
+              <td>
+                <label for="input1" class="form-label">Name</label>
+                <input type="text" class="form-control" id="input1" />
+              </td>
+              <td class="w-50">
+                <label for="input1" class="form-label">Description</label>
+                <input type="text" class="form-control" id="input1" />
+              </td>
+              <td>
+                <label for="input1" class="form-label">Submit Date</label>
+                <input type="datetime" class="form-control" id="input1" />
+              </td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ADD Form Modal End -->
