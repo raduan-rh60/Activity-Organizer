@@ -227,7 +227,7 @@
     animation: jumping 9s ease-in-out 2s infinite alternate;
     animation-delay: 1s;
     transition: all .9s ease 5s;
-    user-select: none;
+    /* user-select: none; */
   }
   
   /* line 260, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
@@ -236,7 +236,7 @@
     animation: jumping2 9s ease-in-out 2s infinite alternate;
     animation-delay: 1s;
     transition: all 1s ease 3s;
-    user-select: none;
+    /* user-select: none; */
   }
   
   /* line 268, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
@@ -245,7 +245,7 @@
     animation: jumping3 9s ease-in-out 2s infinite alternate;
     animation-delay: 1s;
     transition: all 7s ease 2s;
-    user-select: none;
+    /* user-select: none; */
   }
   
   /* line 276, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
