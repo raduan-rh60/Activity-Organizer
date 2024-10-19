@@ -211,22 +211,22 @@
    justify-content: center;
    flex-direction: column;
    background-color: #edf1fc;
-   width: 4rem;
-   height: 4rem;
-   border-radius: 50%;
+   width: 8rem;
+   height: 6rem;
+   border-radius: 10%;
  }
  
  .widget-49 .widget-49-title-wrapper .widget-49-date-primary .widget-49-date-day {
    color: #4e73e5;
-   font-weight: 500;
-   font-size: 1.5rem;
-   line-height: 1;
+   font-weight: 200;
+   font-size: 14px;
+   line-height: 2;
  }
  
  .widget-49 .widget-49-title-wrapper .widget-49-date-primary .widget-49-date-month {
    color: #4e73e5;
    line-height: 1;
-   font-size: 1rem;
+   font-size: 18px;
    text-transform: uppercase;
  }
  

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowAllCategroiesComponent } from './show-all-categroies.component';
+import { ShowAllCategroiesComponent } from './show-all-categories.component';
 
 describe('ShowAllCategroiesComponent', () => {
   let component: ShowAllCategroiesComponent;

@@ -1,0 +1,67 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "activities": [
+    {
+      "id": "a1",
+      "activityName": "website project",
+      "activityCategory": "work",
+      "modifiedDate":"17-apr-24",
+      "activityShortDescription":"a website base on angular platform.",
+      "events": [
+        {
+          "id": "1a",
+          "name": "Design front page",
+          "shortDescription": "front page of RK Builders",
+          "submitDate": "26-apr-24",
+          "submitTime": "10:30 am"
+        },
+        {
+          "id": "2a",
+          "name": "Design Contact page",
+          "shortDescription": "Contact page of RK Builders",
+          "submitDate": "26-apr-24",
+          "submitTime": "10:30 am"
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "activityName": "Doctor Checkup",
+      "activityCategory": "Health",
+      "modifiedDate":"26-apr-24",
+      "activityShortDescription":"Health checkup for backpain",
+      "events": [
+        {
+          "id": "1a",
+          "name": "reports",
+          "shortDescription": "Collecting previous reports",
+          "submitDate": "25-apr-24",
+          "submitTime": "10:30 am"
+        }
+      ]
+    }
+  ],
+  "all-activities":[
+    {
+        "id": "1a",
+        "name": "Design front page",
+        "shortDescription": "front page of RK Builders",
+        "submitDate": "20/12/24",
+        "submit-time": "10:30 am"
+      },
+      {
+        "id": "2a",
+        "name": "Design Contact page",
+        "shortDescription": "Contact page of RK Builders",
+        "submitDate": "22/12/24",
+        "submitTime": "10:30 am"
+      }
+  ]
+}

@@ -45,7 +45,7 @@
   @media (max-width: 991px) {
     /* line 21, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
     .banner_part .banner_text .banner_text_iner {
-      padding-top: 30%;
+      padding-top: 10%;
     }
   }
   
@@ -74,9 +74,9 @@
   
   /* line 44, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_banner.scss */
   .banner_part .banner_text h1 {
-    font-size: 70px;
+    font-size: 60px;
     text-transform: capitalize;
-    font-weight: 700;
+    font-weight: 650;
     margin-bottom: 40px;
     line-height: 70px;
   }

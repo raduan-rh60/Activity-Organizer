@@ -3,7 +3,7 @@ import { HomeComponent } from './Pages/home/home.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { SignupComponent } from './Pages/signup/signup.component';
 import { NavbarComponent } from './Pages/Components/navbar/navbar.component';
-import { ShowAllCategroiesComponent } from './Pages/Components/show-all-categroies/show-all-categroies.component';
+import { ShowAllCategroiesComponent } from './Pages/Components/show-all-categories/show-all-categories.component';
 import { MyActivitiesComponent } from './Pages/Components/my-activities/my-activities.component';
 import { AcitivityDetailsComponent } from './Pages/Components/acitivity-details/acitivity-details.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
