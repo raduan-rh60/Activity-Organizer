@@ -255,6 +255,7 @@
   user-select: none;
 }
 
+<<<<<<< HEAD
 /* line 284, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
 .custom-animation5 {
   backface-visibility: hidden;
@@ -263,6 +264,61 @@
   transition: all 8s ease 4s;
   user-select: none;
 }
+=======
+  /* Animaitons CSS */
+  .custom-animation1 {
+    backface-visibility: hidden;
+    animation: jumping 9s ease-in-out 2s infinite alternate;
+    animation-delay: 1s;
+    transition: all .9s ease 5s;
+    /* user-select: none; */
+  }
+  
+  /* line 260, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
+  .custom-animation2 {
+    backface-visibility: hidden;
+    animation: jumping2 9s ease-in-out 2s infinite alternate;
+    animation-delay: 1s;
+    transition: all 1s ease 3s;
+    /* user-select: none; */
+  }
+  
+  /* line 268, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
+  .custom-animation3 {
+    backface-visibility: hidden;
+    animation: jumping3 9s ease-in-out 2s infinite alternate;
+    animation-delay: 1s;
+    transition: all 7s ease 2s;
+    /* user-select: none; */
+  }
+  
+  /* line 276, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
+  .custom-animation4 {
+    backface-visibility: hidden;
+    animation: jumping4 9s ease-in-out 2s infinite alternate;
+    animation-delay: 1s;
+    transition: all 8s ease 4s;
+    user-select: none;
+  }
+  
+  /* line 284, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
+  .custom-animation5 {
+    backface-visibility: hidden;
+    animation: jumping5 9s ease-in-out 2s infinite alternate;
+    animation-delay: 1s;
+    transition: all 8s ease 4s;
+    user-select: none;
+  }
+  
+  /* line 292, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
+  .custom-animation6 {
+    backface-visibility: hidden;
+    animation: jumping6 9s ease-in-out 2s infinite alternate;
+    animation-delay: 1s;
+    transition: all 8s ease 4s;
+    user-select: none;
+  }
+>>>>>>> 78760696c1300bac1f5967431603ea6a1437acb1
 
 /* line 292, ../../01 cl html template/03_jun 2019/185 Ecobit SAAS html/sass/_common.scss */
 .custom-animation6 {
