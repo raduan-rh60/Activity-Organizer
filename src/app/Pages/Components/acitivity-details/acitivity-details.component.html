@@ -3,8 +3,10 @@
   <div class="col-md-9">
     <div class="row">
       <div class="col-md-6">
-        <h2>{{activity.activityName}}</h2>
-        <span class="text-secondary"><p>Last modified on {{activity.modifiedDate}}</p></span>
+        <h2>{{ activity.activityName }}</h2>
+        <span class="text-secondary text-start"
+        ><p>Last modified on {{ activity.modifiedDate }}</p></span
+      >
       </div>
       <div class="col-md-6 align-items-end text-end">
         <button
@@ -14,6 +16,28 @@
         >
           Edit
         </button>
+        <button
+        (click)="deleteActivity(activity.id)"
+          class="btn btn-danger ms-2 px-3 rounded-3"
+          
+        >
+          delete
+        </button>
+        <br>
+        <div class="row pt-3">
+          <div class="col-md-9">
+           
+          </div>
+          <div class="col-md-3">
+            <label for="input2" class="form-label">Activity Type</label>
+                <select id="input2" class="form-control ">
+                  <option selected>Choose...</option>
+                  <option>Pending</option>
+                  <option>Completed</option>
+                </select>
+          </div>
+        </div>
+        
 
         <!-- Edit Form modal -->
         <div
@@ -41,11 +65,15 @@
                 <div class="text-start">
                   <div class="row">
                     <div class="col-md-6">
-                      <label for="input1" class="form-label">Activity Title</label>
+                      <label for="input1" class="form-label"
+                        >Activity Title</label
+                      >
                       <input type="text" class="form-control" id="input1" />
                     </div>
                     <div class="col-md-6">
-                      <label for="input2" class="form-label">Activity Category</label>
+                      <label for="input2" class="form-label"
+                        >Activity Category</label
+                      >
                       <select id="input2" class="form-control">
                         <option selected>Choose...</option>
                         <option>Work</option>
@@ -54,7 +82,9 @@
                       </select>
                     </div>
                   </div>
-                  <label for="input3" class="form-label">Activity Short Description less than 30 word</label>
+                  <label for="input3" class="form-label"
+                    >Activity Short Description less than 30 word</label
+                  >
                   <input type="text" class="form-control" id="input3" />
                   <div class="row">
                     <div class="col-6">
@@ -145,21 +175,54 @@
           <th scope="col">Events Name</th>
           <th scope="col">Short Detail</th>
           <th scope="col" class="text-end">Submit Date</th>
+          <th scope="col" class="text-end">Submit Time</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
-     
+
       <tbody>
         @for (allevents of activity.events; track $index) {
         <tr>
-          <td>{{allevents.name}}</td>
-          <td>{{allevents.shortDescription}}</td>
-          <td class="text-end">{{allevents.submitDate}}</td>
+          <td>{{ allevents.name }}</td>
+          <td class="w-50">{{ allevents.shortDescription }}</td>
+          <td class="text-end">{{ allevents.submitDate }}</td>
+          <td class="text-end">{{allevents.submitTime}}</td>
+          <td class="text-end">
+           <button class="btn py-0 my-0">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#5985E1"
+          >
+            <path
+              d="m423-329 277-277-43-43-234 234-121-121-42 42 163 165ZM180-120q-24.75 0-42.37-17.63Q120-155.25 120-180v-600q0-24.75 17.63-42.38Q155.25-840 180-840h205q5-35 32-57.5t63-22.5q36 0 63 22.5t32 57.5h205q24.75 0 42.38 17.62Q840-804.75 840-780v600q0 24.75-17.62 42.37Q804.75-120 780-120H180Zm0-60h600v-600H180v600Zm300-617q14 0 24.5-10.5T515-832q0-14-10.5-24.5T480-867q-14 0-24.5 10.5T445-832q0 14 10.5 24.5T480-797ZM180-180v-600 600Z"
+            />
+          </svg>
+           </button>
+         
+            <button class="btn my-0 py-0" (click)="deleteEvents(allevents.id)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#EA3323"
+              >
+                <path
+                  d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
+                />
+              </svg>
+            </button>
+          </td>
         </tr>
-      }
+        }
       </tbody>
     </table>
   </div>
-  
+
   <div class="col-md-3 ps-4">
     <div
       class="toast show align-items-center text-white bg-success border-0"
@@ -183,121 +246,109 @@
 
 <!-- Edit Form modal -->
 <div
-class="modal fade"
-id="exampleModal"
-tabindex="-1"
-aria-labelledby="exampleModalLabel"
-aria-hidden="true"
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
 >
-<div class="modal-dialog modal-xl">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">
-        Edit Your Activity
-      </h5>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="modal"
-        aria-label="Close"
-      ></button>
-    </div>
-    <div class="modal-body">
-      <!-- Edit Form -->
-      <div class="text-start">
-        <div class="row">
-          <div class="col-md-6">
-            <label for="input1" class="form-label">Activity Title</label>
-            <input type="text" class="form-control" id="input1" />
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Your Activity</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Edit Form -->
+        <div class="text-start">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="input1" class="form-label">Activity Title</label>
+              <input type="text" class="form-control" id="input1" />
+            </div>
+            <div class="col-md-6">
+              <label for="input2" class="form-label">Activity Category</label>
+              <select id="input2" class="form-control">
+                <option selected>Choose...</option>
+                <option>Work</option>
+                <option>Health</option>
+                <option>...</option>
+              </select>
+            </div>
           </div>
-          <div class="col-md-6">
-            <label for="input2" class="form-label">Activity Category</label>
-            <select id="input2" class="form-control">
-              <option selected>Choose...</option>
-              <option>Work</option>
-              <option>Health</option>
-              <option>...</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <div class="h4 pt-4">Events</div>
-          </div>
-          <div class="col-6 text-end pt-1">
-            <button class="btn">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="48px"
-                viewBox="0 -960 960 960"
-                width="48px"
-                fill="#5985E1"
-              >
-                <path
-                  d="M450-450H200v-60h250v-250h60v250h250v60H510v250h-60v-250Z"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <hr />
-        <table class="table-borderless w-100">
-          <tbody>
-            <tr>
-              <td class="delete">
-                <br>
-                <button class="btn">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 -960 960 960"
-                    width="24px"
-                    fill="#EA3323"
-                  >
-                    <path
-                      d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
-                    />
-                  </svg>
-                </button>
-              </td>
-              <td>
-                <label for="input1" class="form-label">Name</label>
-                <input type="text" class="form-control" id="input1" />
-              </td>
-              <td class="w-50">
-                <label for="input1" class="form-label"
-                  >Description</label
+          <div class="row">
+            <div class="col-6">
+              <div class="h4 pt-4">Events</div>
+            </div>
+            <div class="col-6 text-end pt-1">
+              <button class="btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="48px"
+                  viewBox="0 -960 960 960"
+                  width="48px"
+                  fill="#5985E1"
                 >
-                <input type="text" class="form-control" id="input1" />
-              </td>
-              <td>
-                <label for="input1" class="form-label"
-                  >Submit Date</label
-                >
-                <input
-                  type="datetime-local"
-                  class="form-control"
-                  id="input1"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                  <path
+                    d="M450-450H200v-60h250v-250h60v250h250v60H510v250h-60v-250Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <hr />
+          <table class="table-borderless w-100">
+            <tbody>
+              <tr>
+                <td class="delete">
+                  <br />
+                  <button class="btn">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 -960 960 960"
+                      width="24px"
+                      fill="#EA3323"
+                    >
+                      <path
+                        d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
+                      />
+                    </svg>
+                  </button>
+                </td>
+                <td>
+                  <label for="input1" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="input1" />
+                </td>
+                <td class="w-50">
+                  <label for="input1" class="form-label">Description</label>
+                  <input type="text" class="form-control" id="input1" />
+                </td>
+                <td>
+                  <label for="input1" class="form-label">Submit Date</label>
+                  <input
+                    type="datetime-local"
+                    class="form-control"
+                    id="input1"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
-    <div class="modal-footer">
-      <button
-        type="button"
-        class="btn btn-secondary"
-        data-bs-dismiss="modal"
-      >
-        Close
-      </button>
-      <button type="button" class="btn btn-primary">
-        Save changes
-      </button>
-    </div>
   </div>
-</div>
 </div>
 <!-- Edit Form Modal End -->

@@ -1,5 +1,5 @@
 <div class="container">
-    <!-- Overall Card Start -->
+  <!-- Overall Card Start -->
   <div class="row">
     <div class="col-lg-4 col-sm-6 col-12">
       <div class="card">
@@ -21,7 +21,7 @@
                 </svg>
               </div>
               <div class="col-md-6 text-end">
-                <h3>278</h3>
+                <h3>{{ myactivities.length }}</h3>
                 <span>All Activities</span>
               </div>
             </div>
@@ -48,7 +48,7 @@
                 </svg>
               </div>
               <div class="col-md-6 text-end">
-                <h3>278</h3>
+                <h3>{{ myactivities.length }}</h3>
                 <span>Recent Activities</span>
               </div>
             </div>
@@ -75,7 +75,7 @@
                 </svg>
               </div>
               <div class="col-md-6 text-end">
-                <h3>278</h3>
+                <h3>0</h3>
                 <span>Completed Activities</span>
               </div>
             </div>
@@ -86,84 +86,139 @@
   </div>
   <!-- Overall Card End -->
 
-  <!-- Search bar start -->
-  <div class="row pt-5">
-    <div class="inputs col-md-7 pb-5">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 -960 960 960"
-        width="24px"
-        fill="#5f6368"
-      >
-        <path
-          d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
-        />
-      </svg>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search Activities..."
-      />
-    </div>
-
-    <div class="col-md-5">
-      <div class="cat-div">
-        <!-- BEGIN ORDER RESULT -->
-        <div class="align-content-end text-end">
-          <button
-            type="button"
-            class="btn btn-light dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
+  <div class="row">
+    <div class="col-md-10">
+      <!-- Search bar start -->
+      <div class="row pt-5">
+        <div class="inputs col-md-7 pb-5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#5f6368"
           >
-            Order by <span class="caret"></span>
-          </button>
-          <ul
-            class="dropdown-menu dropdown-menu"
-            aria-labelledby="dropdownMenuButton1"
-          >
-            <li><a class="dropdown-item" href="#">Name</a></li>
-            <li><a class="dropdown-item" href="#">Date</a></li>
-            <li><a class="dropdown-item" href="#">View</a></li>
-            <li><a class="dropdown-item" href="#">Rating</a></li>
-          </ul>
+            <path
+              d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
+            />
+          </svg>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search Activities..."
+          />
         </div>
 
-        <!-- END ORDER RESULT -->
+        <div class="col-md-5">
+          <div class="cat-div">
+            <!-- BEGIN ORDER RESULT -->
+            <div class="align-content-end text-end">
+              <button
+                type="button"
+                class="btn btn-light dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Order by <span class="caret"></span>
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu"
+                aria-labelledby="dropdownMenuButton1"
+              >
+                <li><a class="dropdown-item" href="#">Name</a></li>
+                <li><a class="dropdown-item" href="#">Date</a></li>
+                <li><a class="dropdown-item" href="#">View</a></li>
+                <li><a class="dropdown-item" href="#">Rating</a></li>
+              </ul>
+            </div>
+
+            <!-- END ORDER RESULT -->
+          </div>
+        </div>
+      </div>
+      <!-- Search bar End -->
+
+      <!-- Activities bar Start -->
+
+      <table class="table table-borderless">
+        <thead class="border-bottom">
+          <tr>
+            <th scope="col">Events Name</th>
+            <th scope="col">Short Detail</th>
+            <th scope="col" class="text-end">Submit Date</th>
+            <th scope="col" class="text-end">Submit Time</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (allevents of myactivities; track $index) {
+          <tr>
+            <td>{{ allevents.name }}</td>
+            <td class="w-50">{{ allevents.shortDescription }}</td>
+            <td class="text-end">{{ allevents.submitDate }}</td>
+            <td class="text-end">{{ allevents.submitTime }}</td>
+            <td>
+              <button class="btn py-0 my-0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#5985E1"
+                >
+                  <path
+                    d="m423-329 277-277-43-43-234 234-121-121-42 42 163 165ZM180-120q-24.75 0-42.37-17.63Q120-155.25 120-180v-600q0-24.75 17.63-42.38Q155.25-840 180-840h205q5-35 32-57.5t63-22.5q36 0 63 22.5t32 57.5h205q24.75 0 42.38 17.62Q840-804.75 840-780v600q0 24.75-17.62 42.37Q804.75-120 780-120H180Zm0-60h600v-600H180v600Zm300-617q14 0 24.5-10.5T515-832q0-14-10.5-24.5T480-867q-14 0-24.5 10.5T445-832q0 14 10.5 24.5T480-797ZM180-180v-600 600Z"
+                  />
+                </svg>
+              </button>
+
+              <button
+                class="btn my-0 py-0"
+                (click)="deleteActivities(allevents.id)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#EA3323"
+                >
+                  <path
+                    d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
+                  />
+                </svg>
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+
+      <!-- Activity Bar end -->
+    </div>
+    <!-- notification Start -->
+    <div class="col-md-2">
+      <div
+      *ngIf="delete"
+        class="toast show align-items-center text-white bg-danger border-0 mt-5"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">delete Successfull.</div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
       </div>
     </div>
   </div>
-    <!-- Search bar End -->
-
-<!-- Activities bar Start -->
-
-<table class="table table-borderless">
-  <thead class="border-bottom">
-    <tr>
-      <th scope="col">Events Name</th>
-      <th scope="col">Short Detail</th>
-      <th scope="col" class="text-end">Submit Date</th>
-      <th scope="col" class="text-end">Submit Time</th>
-    </tr>
-  </thead>
- 
-  <tbody>
-    @for (allevents of myactivities; track $index) {
-    <tr>
-      <td>{{allevents.name}}</td>
-      <td>{{allevents.shortDescription}}</td>
-      <td class="text-end">{{allevents.submitDate}}</td>
-      <td class="text-end">{{allevents.submitTime}}</td>
-    </tr>
-  }
-  </tbody>
-</table>
-
-
-<!-- Activity Bar end -->
-
-
 </div>

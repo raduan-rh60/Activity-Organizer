@@ -17,6 +17,8 @@ import { ShowAllCategroiesModel } from '../show-all-categories/show-all-categori
 export class AcitivityDetailsComponent {
   activity!: ShowAllCategroiesModel;
   id:string="";
+  deleteEvent:boolean=false;
+
 
   constructor(private appservice: AppService,private showallcategories:ShowAllCategroiesComponent,private activatedRoute:ActivatedRoute,private router:Router) {
     this.activatedRoute.paramMap.subscribe((param:Params)=>{
@@ -35,5 +37,18 @@ export class AcitivityDetailsComponent {
     this.appservice.getActivityByID(this.id).subscribe((res: ShowAllCategroiesModel) => {
       this.activity = res;
     });
+  }
+
+  deleteActivity(id:string){
+    this.appservice.deleteActivities(id).subscribe(res=>{
+      this.router.navigate(['dashboard/activities'])
+    })
+  }
+
+  deleteEvents(id:string){
+    this.appservice.deleteEvents(id).subscribe(res=>{
+     this.deleteEvent=true
+     this.getActivityInfo();
+    })
   }
 }

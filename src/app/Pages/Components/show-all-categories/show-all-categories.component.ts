@@ -1,11 +1,17 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, RouterLink, RouterOutlet } from '@angular/router';
+import {
+  RouterLink,
+  RouterOutlet,
+} from '@angular/router';
 import { SideNotificationComponent } from '../side-notification/side-notification.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { AppService } from '../../../app-service';
-import { Observable } from 'rxjs';
-import { AcitivityDetailsComponent } from '../acitivity-details/acitivity-details.component';
-import { Router } from 'express';
+import { ShowAllCategroiesModel } from './show-all-categories.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,20 +24,40 @@ import { Router } from 'express';
     RouterOutlet,
     SideNotificationComponent,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './show-all-categories.component.html',
   styleUrl: './show-all-categories.component.css',
 })
 export class ShowAllCategroiesComponent implements OnInit {
   activityData: any[] = [];
-  public id:string ="";
+  public id: string = '';
 
-  constructor(private appservice: AppService) {}
+  formValue!: FormGroup;
+  showmodel!:ShowAllCategroiesModel;
+
+  constructor(
+    private appservice: AppService,
+    private formbuilder: FormBuilder,
+    private apiService:AppService
+  ) {}
 
   ngOnInit(): void {
+    this.formValue = this.formbuilder.group({
+      activityName: [''],
+      activityCategory: [''],
+      modifiedDate: [''],
+      activityShortDescription: [''],
+      events: this.formbuilder.group(
+        {
+          name: [''],
+        shortDescription: [''],
+        submitDate: [''],
+        submitTime: ['']
+        }
+      )
+    });
     this.getActivityInfo();
-   
   }
   getActivityInfo() {
     this.appservice.getactivityLocation().subscribe((res: any) => {
@@ -39,4 +65,21 @@ export class ShowAllCategroiesComponent implements OnInit {
     });
   }
 
+  addActivity() {
+    this.showmodel.activityName=this.formValue.value.activityName;
+    this.showmodel.activityCategory=this.formValue.value.activityCategory;
+    this.showmodel.modifiedDate=this.formValue.value.modifiedDate;
+    this.showmodel.activityShortDescription=this.formValue.value.activityShortDescription;
+    this.showmodel.events[0].name=this.formValue.value.name,
+    this.showmodel.events[0].shortDescription=this.formValue.value.shortDescription,
+    this.showmodel.events[0].submitDate=this.formValue.value.submitDate,
+    this.showmodel.events[0].submitTime=this.formValue.value.submitTime
+
+    this.apiService.postActivity(this.showmodel).subscribe(
+      (res) => {
+        console.log(res);
+        alert('added Successful');
+
+  });
+}
 }

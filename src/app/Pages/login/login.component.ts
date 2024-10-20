@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit  {
       username: [''],
       password: ['', Validators.required]
     });
-    this.loginaccess();
+    
     }
   
   loginaccess():void{
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit  {
        
       })
       if(user){
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['dashboard/activities']);
       }else{
         alert('invalid Credentials')
       }
