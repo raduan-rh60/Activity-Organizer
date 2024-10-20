@@ -1,9 +1,11 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Params, RouterLink, RouterOutlet } from '@angular/router';
 import { SideNotificationComponent } from '../side-notification/side-notification.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppService } from '../../../app-service';
 import { Observable } from 'rxjs';
+import { AcitivityDetailsComponent } from '../acitivity-details/acitivity-details.component';
+import { Router } from 'express';
 
 @Injectable({
   providedIn: 'root',
@@ -31,19 +33,10 @@ export class ShowAllCategroiesComponent implements OnInit {
     this.getActivityInfo();
    
   }
-
   getActivityInfo() {
     this.appservice.getactivityLocation().subscribe((res: any) => {
       this.activityData = res;
     });
   }
 
-  getActivityID(id:string){
-    this.id = id;
-    
-  }
-
-  sendId():string{
-    return this.id;
-  }
 }

@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, Injectable } from '@angular/core';
+import { ActivatedRoute, Params, Router, RouterOutlet } from '@angular/router';
 import { AppService } from '../../../app-service';
 import { ShowAllCategroiesComponent } from '../show-all-categories/show-all-categories.component';
+import { ShowAllCategroiesModel } from '../show-all-categories/show-all-categories.model';
 
+@Injectable({
+  providedIn: 'root',
+})
 @Component({
   selector: 'app-acitivity-details',
   standalone: true,
@@ -11,25 +15,25 @@ import { ShowAllCategroiesComponent } from '../show-all-categories/show-all-cate
   styleUrl: './acitivity-details.component.css',
 })
 export class AcitivityDetailsComponent {
-  activityData: any[] = [];
-  id:String="";
+  activity!: ShowAllCategroiesModel;
+  id:string="";
 
-  constructor(private appservice: AppService,private showallcategories:ShowAllCategroiesComponent) {
-    // this.id=this.showallcategories.sendId().subscribe((id:any)=>{
-    //   this.id=id;
-    // });
-    console.log(this.id);
+  constructor(private appservice: AppService,private showallcategories:ShowAllCategroiesComponent,private activatedRoute:ActivatedRoute,private router:Router) {
+    this.activatedRoute.paramMap.subscribe((param:Params)=>{
+      this.id= param['get']("id");
+      
+  });
+  this.getActivityInfo();
+    
   }
 
   ngOnInit(): void {
     this.getActivityInfo();
-    console.log(this.showallcategories.sendId());
   }
 
   getActivityInfo() {
-    this.appservice.getActivityByID(this.showallcategories.id).subscribe((res: any) => {
-      
-      this.activityData = res;
+    this.appservice.getActivityByID(this.id).subscribe((res: ShowAllCategroiesModel) => {
+      this.activity = res;
     });
   }
 }

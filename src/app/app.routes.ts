@@ -15,6 +15,6 @@ export const routes: Routes = [
     {path:'dashboard',component:DashboardComponent,children:[
         {path:'activities',component:ShowAllCategroiesComponent},
         {path:'myactivity',component:MyActivitiesComponent},
-        {path:'activity-details',component:AcitivityDetailsComponent}
+        {path:'activity-details/:id',component:AcitivityDetailsComponent}
     ]}
 ];

@@ -1,5 +1,5 @@
+@if (activity) {
 <div class="row p-5">
-  @for (activity of activityData; track $index) {
   <div class="col-md-9">
     <div class="row">
       <div class="col-md-6">
@@ -15,13 +15,10 @@
           Edit
         </button>
 
-<<<<<<< HEAD
-        
-=======
         <!-- Edit Form modal -->
         <div
           class="modal fade"
-          id="exampleModal"
+          id="exampleModal2"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
@@ -42,8 +39,23 @@
               <div class="modal-body">
                 <!-- Edit Form -->
                 <div class="text-start">
-                  <label for="input1" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="input1" />
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="input1" class="form-label">Activity Title</label>
+                      <input type="text" class="form-control" id="input1" />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="input2" class="form-label">Activity Category</label>
+                      <select id="input2" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Work</option>
+                        <option>Health</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label for="input3" class="form-label">Activity Short Description less than 30 word</label>
+                  <input type="text" class="form-control" id="input3" />
                   <div class="row">
                     <div class="col-6">
                       <div class="h4 pt-4">Events</div>
@@ -124,7 +136,6 @@
           </div>
         </div>
         <!-- Edit Form Modal End -->
->>>>>>> 78760696c1300bac1f5967431603ea6a1437acb1
       </div>
     </div>
     <!-- Events Body -->
@@ -148,7 +159,7 @@
       </tbody>
     </table>
   </div>
-}
+  
   <div class="col-md-3 ps-4">
     <div
       class="toast show align-items-center text-white bg-success border-0"
@@ -168,6 +179,7 @@
     </div>
   </div>
 </div>
+}
 
 <!-- Edit Form modal -->
 <div
