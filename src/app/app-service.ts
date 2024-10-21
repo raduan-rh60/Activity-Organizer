@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { ShowAllCategroiesModel } from './Pages/Components/show-all-categories/show-all-categories.model';
 import { MyActivityModel } from './Pages/Components/my-activities/my-activities.mode';
 import { UserModel } from './Pages/login/UserModel';
@@ -26,7 +26,15 @@ export class AppService {
     return this.httpclient.get(this.baseActivityUrl);
   }
   postActivity(data:ShowAllCategroiesModel){
-    return this.httpclient.post(this.baseActivityUrl,data);
+    return this.httpclient.post<ShowAllCategroiesModel>(this.baseActivityUrl,data).pipe(
+      map((res: ShowAllCategroiesModel) => {
+        return res;
+      })
+    );
+  }
+
+  putUser(id:string,data:ShowAllCategroiesModel){
+    return this.httpclient.put<ShowAllCategroiesModel>(this.baseActivityUrl + "/"+id,data)
   }
 
 

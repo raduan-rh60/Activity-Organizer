@@ -1,66 +1,22 @@
 <div class="">
   <div class="row d-flex justify-content-center mt-5">
-    <div class="col-md-9">
+    <div class="col-md-12">
       <div class="d-flex justify-content-between align-items-center mb-5">
         <h4>Activities</h4>
 
         <div class="d-flex flex-row">
-          <button
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="clickAddActivity()">
             Add New
           </button>
         </div>
       </div>
       <div class="card card-outer">
         <div class="row">
-          <div class="inputs col-md-7 pb-5">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#5f6368"
-            >
-              <path
-                d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
-              />
-            </svg>
-            <input
-              type="text"
-              class="form-control form-control-search"
-              placeholder="Search Activities..."
-            />
-          </div>
-
+          <h3>Today Activities</h3>
           <div class="col-md-5">
             <div class="cat-div">
-              <!-- BEGIN ORDER RESULT -->
-              <div class="align-content-end text-end">
-                <button
-                  type="button"
-                  class="btn btn-light dropdown-toggle"
-                  type="button"
-                  id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Order by <span class="caret"></span>
-                </button>
-                <ul
-                  class="dropdown-menu dropdown-menu"
-                  aria-labelledby="dropdownMenuButton1"
-                >
-                  <li><a class="dropdown-item" href="#">Name</a></li>
-                  <li><a class="dropdown-item" href="#">Date</a></li>
-                  <li><a class="dropdown-item" href="#">View</a></li>
-                  <li><a class="dropdown-item" href="#">Rating</a></li>
-                </ul>
-              </div>
 
-              <!-- END ORDER RESULT -->
             </div>
           </div>
           <!-- Cardo Row Start -->
@@ -68,167 +24,105 @@
             @for (activity of activityData; track $index) {
             <div class="col-lg-4">
               <!-- Category Card Start -->
-               
-                <div class="card card-margin">
-                  <div class="card-header no-border">
-                    <h5 class="card-title text-bg-info p-2 rounded-bottom-3">{{activity.activityCategory}}</h5>
-                  </div>
-                  <div class="card-body pt-0">
-                    <div class="widget-49">
-                      <div class="widget-49-title-wrapper">
-                        <div class="widget-49-date-primary">
-                          <span class="widget-49-date-day">Last modified</span>
-                          <span class="widget-49-date-month">{{activity.modifiedDate}}</span>
-                        </div>
-                        <div class="widget-49-meeting-info">
-                          <span class="widget-49-pro-title">{{activity.activityCategory}}</span>
-                          <span class="widget-49-meeting-time"
-                            >Panding Events: {{activity.events.length}}</span
-                          >
-                        </div>
-                      </div>
-                      <ol class="widget-49-meeting-points">
-                        <span>{{activity.activityShortDescription}}</span>
-                      </ol>
-                      <div class="widget-49-meeting-action">
-                        <a
-                          routerLink="../activity-details"
-                          class="btn btn-sm btn-outline-secondary px-4"
-                          routerLink="../activity-details/{{activity.id}}"
-                          >View Acticity</a
-                        >
-                      </div>
-                    </div>
+
+              <div class="card card-margin">
+                <div class="card-header no-border  row">
+                  <h5 class="card-title text-bg-info p-2 rounded-bottom-3 col-3 text-center">{{activity.activityCategory}}</h5>
+                  <div class="col-9 justify-content-end text-end" *ngIf="activity.favorite">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#0000F5">
+                        <path
+                          d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+                      </svg>
                   </div>
                 </div>
-               
-             
+                <div class="card-body pt-0">
+                  <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                      <div class="widget-49-date-primary">
+                        <span class="widget-49-date-day">Submit Time</span>
+                        <span class="widget-49-date-month">{{activity.submitTime}}</span>
+                      </div>
+                      <div class="widget-49-meeting-info">
+                        <span class="widget-49-pro-title">{{activity.activityName}}</span>
+                        <span class="widget-49-meeting-time">Submission Date: <br>{{activity.submitDate | date}}</span>
+                      </div>
+                    </div>
+                    <ol class="widget-49-meeting-points ">
+                      <span>{{activity.activityShortDescription}}</span>
+                    </ol>
+                    <div class="row widget-49-meeting-action">
+                      <div class="col-6">
+                        <a class="btn btn-sm btn-outline-secondary px-4" data-bs-toggle="modal"
+                          data-bs-target="#exampleModal" (click)="showEditData(activity)">Edit Activity</a>
+                      </div>
+                      <div class="col-6">
+                        <a class="btn btn-sm btn-outline-success px-4">mark as done</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+
               <!-- Category Card End -->
             </div>
-          }
+            }
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-md ms-5">
-      <app-side-notification></app-side-notification>
     </div>
   </div>
 </div>
 
 <!-- Add Form modal -->
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add Your Activity</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form [formGroup]="formValue" onsubmit="addEventListener()">
+      <form [formGroup]="formValue">
         <div class="modal-body">
           <!-- Edit Form -->
           <div class="text-start">
             <div class="row">
               <div class="col-md-6">
                 <label for="input1" class="form-label">Activity Title</label>
-                <input type="text" class="form-control" id="input1" formControlName="activityName"/>
+                <input type="text" class="form-control" id="input1" formControlName="activityName" />
               </div>
               <div class="col-md-6">
-                <label for="input2" class="form-label" >Activity Category</label>
-                <select id="input2" class="form-control" formControlName="modifiedDate">
+                <label for="input2" class="form-label">Activity Category</label>
+                <select id="input2" class="form-control" formControlName="activityCategory">
                   <option selected>Choose...</option>
-                  <option>Work</option>
-                  <option>Health</option>
-                  <option>...</option>
+                  <option value="Work">Work</option>
+                  <option value="Health">Health</option>
                 </select>
               </div>
             </div>
             <label for="input3" class="form-label">Activity Short Description less than 30 word</label>
-            <input type="text" class="form-control" id="input3" formControlName="activityShortDescription"/>
+            <input type="text" class="form-control" id="input3" formControlName="activityShortDescription" />
             <div class="row">
-              <div class="col-6">
-                <div class="h4 pt-4">Events</div>
+              <div class="col-md-6">
+                <label for="input10" class="form-label">Submit Date</label>
+                <input type="date" class="form-control" id="input10" formControlName="submitDate" />
               </div>
-              <div class="col-6 text-end pt-1">
-                <button class="btn">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="48px"
-                    viewBox="0 -960 960 960"
-                    width="48px"
-                    fill="#5985E1"
-                  >
-                    <path
-                      d="M450-450H200v-60h250v-250h60v250h250v60H510v250h-60v-250Z"
-                    />
-                  </svg>
-                </button>
+              <div class="col-md-6">
+                <label for="input10" class="form-label">Submit Time</label>
+                <input type="time" class="form-control" id="input10" formControlName="submitTime" />
               </div>
             </div>
-            <hr />
-            <form formGroupName="events">
-            <table class="table-borderless w-100">
-              <tbody>
-                
-                 <fieldset>
-                  <tr>
-                    <td class="delete">
-                      <br />
-                      <button class="btn">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          height="24px"
-                          viewBox="0 -960 960 960"
-                          width="24px"
-                          fill="#EA3323"
-                        >
-                          <path
-                            d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
-                          />
-                        </svg>
-                      </button>
-                    </td>
-                    <td>
-                      <label for="input1" class="form-label">Name</label>
-                      <input type="text" class="form-control" id="input1"  formControlName="name"/>
-                    </td>
-                    <td class="w-50">
-                      <label for="input1" class="form-label">Short Description</label>
-                      <input type="text" class="form-control" id="input1" formControlName="shortDescription" />
-                    </td>
-                    <td>
-                      <label for="input1" class="form-label">Submit Date</label>
-                      <input
-                        type="datetime-local"
-                        class="form-control"
-                        id="input1"
-                        formControlName="submitDate"
-                      />
-                    </td>
-                  </tr>
-                 </fieldset>
-            
-              </tbody>
-            </table>
-          </form>
+            <input type="checkbox" formControlName="favorite"> favorite
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
             Close
           </button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button *ngIf="addButton" class="btn btn-primary" (click)="addActivity()">Add</button>
+          <button *ngIf="saveButton" class="btn btn-primary" (click)="activityUpdate()">Save changes</button>
         </div>
       </form>
     </div>

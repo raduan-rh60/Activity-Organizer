@@ -4,13 +4,10 @@ export interface ShowAllCategroiesModel {
   activityCategory: string
   modifiedDate: string
   activityShortDescription: string
-  events: Event[]
-}
-
-export interface Event {
-  id: string
-  name: string
-  shortDescription: string
   submitDate: string
   submitTime: string
+  complete: string
+  favorite: string
 }
+
+

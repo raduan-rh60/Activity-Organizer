@@ -12,6 +12,7 @@ import {
 } from '@angular/forms';
 import { AppService } from '../../../app-service';
 import { ShowAllCategroiesModel } from './show-all-categories.model';
+import { CommonModule } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,8 @@ import { ShowAllCategroiesModel } from './show-all-categories.model';
     RouterOutlet,
     SideNotificationComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   templateUrl: './show-all-categories.component.html',
   styleUrl: './show-all-categories.component.css',
@@ -32,15 +34,17 @@ import { ShowAllCategroiesModel } from './show-all-categories.model';
 export class ShowAllCategroiesComponent implements OnInit {
   activityData: any[] = [];
   public id: string = '';
-
+  saveButton: boolean = false;
+  addButton: boolean = true;
+  
   formValue!: FormGroup;
-  showmodel!:ShowAllCategroiesModel;
+  showmodel!: ShowAllCategroiesModel;
 
   constructor(
     private appservice: AppService,
     private formbuilder: FormBuilder,
-    private apiService:AppService
-  ) {}
+    private apiService: AppService
+  ) { }
 
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
@@ -48,14 +52,10 @@ export class ShowAllCategroiesComponent implements OnInit {
       activityCategory: [''],
       modifiedDate: [''],
       activityShortDescription: [''],
-      events: this.formbuilder.group(
-        {
-          name: [''],
-        shortDescription: [''],
-        submitDate: [''],
-        submitTime: ['']
-        }
-      )
+      submitDate: [''],
+      submitTime: [''],
+      complete: [''],
+      favorite: ['']
     });
     this.getActivityInfo();
   }
@@ -66,20 +66,39 @@ export class ShowAllCategroiesComponent implements OnInit {
   }
 
   addActivity() {
-    this.showmodel.activityName=this.formValue.value.activityName;
-    this.showmodel.activityCategory=this.formValue.value.activityCategory;
-    this.showmodel.modifiedDate=this.formValue.value.modifiedDate;
-    this.showmodel.activityShortDescription=this.formValue.value.activityShortDescription;
-    this.showmodel.events[0].name=this.formValue.value.name,
-    this.showmodel.events[0].shortDescription=this.formValue.value.shortDescription,
-    this.showmodel.events[0].submitDate=this.formValue.value.submitDate,
-    this.showmodel.events[0].submitTime=this.formValue.value.submitTime
-
-    this.apiService.postActivity(this.showmodel).subscribe(
+    this.apiService.postActivity(this.formValue.value).subscribe(
       (res) => {
-        console.log(res);
+        this.getActivityInfo();
         alert('added Successful');
+        console.log(res);
+      });
+  }
+  clickAddActivity() {
+    this.formValue.reset();
+    this.addButton = true;
+    this.saveButton = false;
+  }
 
-  });
+  showEditData(row:any){
+    this.saveButton = true;
+    this.addButton = false;
+    this.showmodel=row;
+    console.log( this.saveButton);
+    this.formValue.controls['activityName'].setValue(row.activityName);
+    this.formValue.controls['activityCategory'].setValue(row.activityCategory);
+    this.formValue.controls['modifiedDate'].setValue(row.modifiedDate);
+    this.formValue.controls['activityShortDescription'].setValue(row.activityShortDescription);
+    this.formValue.controls['submitDate'].setValue(row.submitDate);
+    this.formValue.controls['submitTime'].setValue(row.submitTime);
+    this.formValue.controls['favorite'].setValue(row.favorite);
+    
+   }
+
+   activityUpdate(){
+    this.appservice.putUser( this.showmodel.id,this.formValue.value).subscribe((res)=>{
+      alert('update successfully');
+      this.formValue.reset();
+      this.getActivityInfo();
+    })
 }
 }
