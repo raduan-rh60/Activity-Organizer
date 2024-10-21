@@ -1,21 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { AppService } from '../../../app-service';
 import { CommonModule } from '@angular/common';
-import { ShowAllCategroiesModel } from '../show-all-categories/show-all-categories.model';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ShowAllCategroiesModel } from '../show-all-categories/show-all-categories.model';
+import { AppService } from '../../../app-service';
 
 @Component({
-  selector: 'app-my-activities',
+  selector: 'app-completed',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule,RouterLink],
-  templateUrl: './my-activities.component.html',
-  styleUrl: './my-activities.component.css'
+  imports: [CommonModule, FormsModule,ReactiveFormsModule],
+  templateUrl: './completed.component.html',
+  styleUrl: './completed.component.css'
 })
-export class MyActivitiesComponent implements OnInit{
+export class CompletedComponent implements OnInit{
   myactivities:ShowAllCategroiesModel[]=[];
-  completeActivity:ShowAllCategroiesModel[]=[];
-  fvoriteActivity:ShowAllCategroiesModel[]=[];
 
   formValue!: FormGroup;
   showmodel!: ShowAllCategroiesModel;
@@ -38,16 +35,8 @@ export class MyActivitiesComponent implements OnInit{
   }
 
   getAllActivityInfo() {
-    this.appservice.getactivityLocation().subscribe((res: ShowAllCategroiesModel[]) => {
-      this.myactivities = res;
-    
-    });
     this.appservice.getCompleteActivityLocation().subscribe((res: ShowAllCategroiesModel[]) => {
-      this.completeActivity = res;
-    
-    });
-    this.appservice.getFavoriteActivityLocation().subscribe((res: ShowAllCategroiesModel[]) => {
-      this.fvoriteActivity = res;
+      this.myactivities = res;
     
     });
 }
@@ -81,4 +70,5 @@ showEditData(row:any){
     this.getAllActivityInfo();
   })
 }
+
 }

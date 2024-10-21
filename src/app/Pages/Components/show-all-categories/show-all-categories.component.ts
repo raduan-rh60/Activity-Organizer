@@ -3,7 +3,6 @@ import {
   RouterLink,
   RouterOutlet,
 } from '@angular/router';
-import { SideNotificationComponent } from '../side-notification/side-notification.component';
 import {
   FormBuilder,
   FormGroup,
@@ -23,7 +22,6 @@ import { CommonModule } from '@angular/common';
   imports: [
     RouterLink,
     RouterOutlet,
-    SideNotificationComponent,
     FormsModule,
     ReactiveFormsModule,
     CommonModule
@@ -40,10 +38,11 @@ export class ShowAllCategroiesComponent implements OnInit {
   formValue!: FormGroup;
   showmodel!: ShowAllCategroiesModel;
 
+  today = new Date().toISOString().split('T')[0];
+
   constructor(
     private appservice: AppService,
-    private formbuilder: FormBuilder,
-    private apiService: AppService
+    private formbuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -54,23 +53,23 @@ export class ShowAllCategroiesComponent implements OnInit {
       activityShortDescription: [''],
       submitDate: [''],
       submitTime: [''],
-      complete: [''],
-      favorite: ['']
+      complete: [false],
+      favorite: [false]
     });
     this.getActivityInfo();
   }
   getActivityInfo() {
-    this.appservice.getactivityLocation().subscribe((res: any) => {
+    console.log(this.today)
+    this.appservice.dateFilter().subscribe((res: any) => {
       this.activityData = res;
     });
   }
 
   addActivity() {
-    this.apiService.postActivity(this.formValue.value).subscribe(
+    this.appservice.postActivity(this.formValue.value).subscribe(
       (res) => {
         this.getActivityInfo();
         alert('added Successful');
-        console.log(res);
       });
   }
   clickAddActivity() {
@@ -91,14 +90,22 @@ export class ShowAllCategroiesComponent implements OnInit {
     this.formValue.controls['submitDate'].setValue(row.submitDate);
     this.formValue.controls['submitTime'].setValue(row.submitTime);
     this.formValue.controls['favorite'].setValue(row.favorite);
+    this.formValue.controls['complete'].setValue(row.complete);
     
    }
 
    activityUpdate(){
-    this.appservice.putUser( this.showmodel.id,this.formValue.value).subscribe((res)=>{
+    this.appservice.putActivity( this.showmodel.id,this.formValue.value).subscribe((res)=>{
       alert('update successfully');
       this.formValue.reset();
       this.getActivityInfo();
     })
+}
+
+deleteActivity(id:string){
+  this.appservice.deleteActivities(id).subscribe((res)=>{
+    alert("delete Successful.");
+    this.getActivityInfo();
+  })
 }
 }

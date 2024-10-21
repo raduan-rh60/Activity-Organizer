@@ -1,12 +1,16 @@
-<div class="">
+<div class="me-md-5">
   <div class="row d-flex justify-content-center mt-5">
     <div class="col-md-12">
       <div class="d-flex justify-content-between align-items-center mb-5">
         <h4>Activities</h4>
 
         <div class="d-flex flex-row">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-            (click)="clickAddActivity()">
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            (click)="clickAddActivity()"
+          >
             Add New
           </button>
         </div>
@@ -15,25 +19,46 @@
         <div class="row">
           <h3>Today Activities</h3>
           <div class="col-md-5">
-            <div class="cat-div">
-
-            </div>
+            <div class="cat-div"></div>
           </div>
           <!-- Cardo Row Start -->
+
           <div class="row">
+            <div class="text-center" *ngIf="activityData.length === 0">
+              <p>No Activity for submit Today</p>
+              <button routerLink="../myactivity" class="btn btn-outline-dark mt-3 px-4">View All Activities</button>
+            </div>
             @for (activity of activityData; track $index) {
             <div class="col-lg-4">
               <!-- Category Card Start -->
 
               <div class="card card-margin">
-                <div class="card-header no-border  row">
-                  <h5 class="card-title text-bg-info p-2 rounded-bottom-3 col-3 text-center">{{activity.activityCategory}}</h5>
-                  <div class="col-9 justify-content-end text-end" *ngIf="activity.favorite">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                        fill="#0000F5">
-                        <path
-                          d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
-                      </svg>
+                <div class="card-header no-border row mx-1">
+                  <h5
+                    class="card-title text-bg-info p-2 rounded-bottom-3 col-3 text-center"
+                  >
+                    {{ activity.activityCategory }}
+                  </h5>
+                  <div
+                    class="col-6 text-success text-decoration-underline strong"
+                  >
+                    <p *ngIf="activity.complete">Activity Completed</p>
+                  </div>
+                  <div
+                    class="col-3 justify-content-end text-end"
+                    *ngIf="activity.favorite"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 -960 960 960"
+                      width="24px"
+                      fill="#0000F5"
+                    >
+                      <path
+                        d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"
+                      />
+                    </svg>
                   </div>
                 </div>
                 <div class="card-body pt-0">
@@ -41,35 +66,49 @@
                     <div class="widget-49-title-wrapper">
                       <div class="widget-49-date-primary">
                         <span class="widget-49-date-day">Submit Time</span>
-                        <span class="widget-49-date-month">{{activity.submitTime}}</span>
+                        <span class="widget-49-date-month">{{
+                          activity.submitTime
+                        }}</span>
                       </div>
                       <div class="widget-49-meeting-info">
-                        <span class="widget-49-pro-title">{{activity.activityName}}</span>
-                        <span class="widget-49-meeting-time">Submission Date: <br>{{activity.submitDate | date}}</span>
+                        <span class="widget-49-pro-title">{{
+                          activity.activityName
+                        }}</span>
+                        <span class="widget-49-meeting-time"
+                          >Submission Date: <br />{{
+                            activity.submitDate | date
+                          }}</span
+                        >
                       </div>
                     </div>
-                    <ol class="widget-49-meeting-points ">
-                      <span>{{activity.activityShortDescription}}</span>
+                    <ol class="widget-49-meeting-points">
+                      <span>{{ activity.activityShortDescription }}</span>
                     </ol>
-                    <div class="row widget-49-meeting-action">
-                      <div class="col-6">
-                        <a class="btn btn-sm btn-outline-secondary px-4" data-bs-toggle="modal"
-                          data-bs-target="#exampleModal" (click)="showEditData(activity)">Edit Activity</a>
-                      </div>
-                      <div class="col-6">
-                        <a class="btn btn-sm btn-outline-success px-4">mark as done</a>
-                      </div>
-                    </div>
+                    <div class="widget-49-meeting-action">
+                      <a
+                        class="btn btn-sm btn-outline-secondary px-4"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                        (click)="showEditData(activity)"
+                        >Edit Activity</a
+                      >
 
+                      <a
+                        class="btn btn-sm btn-outline-danger px-4 ms-2"
+                        (click)="deleteActivity(activity.id)"
+                        >delete</a
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
-
 
               <!-- Category Card End -->
             </div>
             }
           </div>
+
+         
         </div>
       </div>
     </div>
@@ -77,12 +116,23 @@
 </div>
 
 <!-- Add Form modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Your Activity</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="exampleModalLabel">Activity Form</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <form [formGroup]="formValue">
         <div class="modal-body">
@@ -91,38 +141,105 @@
             <div class="row">
               <div class="col-md-6">
                 <label for="input1" class="form-label">Activity Title</label>
-                <input type="text" class="form-control" id="input1" formControlName="activityName" />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="input1"
+                  formControlName="activityName"
+                />
               </div>
               <div class="col-md-6">
                 <label for="input2" class="form-label">Activity Category</label>
-                <select id="input2" class="form-control" formControlName="activityCategory">
+                <select
+                  id="input2"
+                  class="form-control"
+                  formControlName="activityCategory"
+                >
                   <option selected>Choose...</option>
                   <option value="Work">Work</option>
                   <option value="Health">Health</option>
                 </select>
               </div>
             </div>
-            <label for="input3" class="form-label">Activity Short Description less than 30 word</label>
-            <input type="text" class="form-control" id="input3" formControlName="activityShortDescription" />
+            <label for="input3" class="form-label"
+              >Activity Short Description less than 30 word</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="input3"
+              formControlName="activityShortDescription"
+            />
             <div class="row">
               <div class="col-md-6">
                 <label for="input10" class="form-label">Submit Date</label>
-                <input type="date" class="form-control" id="input10" formControlName="submitDate" />
+                <input
+                  type="date"
+                  class="form-control"
+                  id="input10"
+                  formControlName="submitDate"
+                />
               </div>
               <div class="col-md-6">
                 <label for="input10" class="form-label">Submit Time</label>
-                <input type="time" class="form-control" id="input10" formControlName="submitTime" />
+                <input
+                  type="time"
+                  class="form-control"
+                  id="input10"
+                  formControlName="submitTime"
+                />
               </div>
             </div>
-            <input type="checkbox" formControlName="favorite"> favorite
+            <div class="mt-3">
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="btn-check-outlined"
+                autocomplete="off"
+                formControlName="favorite"
+                checked
+              />
+              <label class="btn btn-outline-primary" for="btn-check-outlined"
+                >Favorite</label
+              >
+              <input
+                type="checkbox"
+                class="btn-check ms-2"
+                id="btn-check-outlined-complete"
+                autocomplete="off"
+                formControlName="complete"
+                checked
+              />
+              <label
+                class="btn btn-outline-success ms-3"
+                for="btn-check-outlined-complete"
+                >Complete</label
+              >
+            </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
             Close
           </button>
-          <button *ngIf="addButton" class="btn btn-primary" (click)="addActivity()">Add</button>
-          <button *ngIf="saveButton" class="btn btn-primary" (click)="activityUpdate()">Save changes</button>
+          <button
+            *ngIf="addButton"
+            class="btn btn-primary"
+            (click)="addActivity()"
+          >
+            Add
+          </button>
+          <button
+            *ngIf="saveButton"
+            class="btn btn-primary"
+            (click)="activityUpdate()"
+          >
+            Save changes
+          </button>
         </div>
       </form>
     </div>

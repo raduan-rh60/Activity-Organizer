@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { ShowAllCategroiesModel } from './Pages/Components/show-all-categories/show-all-categories.model';
-import { MyActivityModel } from './Pages/Components/my-activities/my-activities.mode';
 import { UserModel } from './Pages/login/UserModel';
 
 @Injectable({
@@ -11,8 +10,8 @@ import { UserModel } from './Pages/login/UserModel';
 export class AppService {
   private baseUserUrl = 'http://localhost:3000/user';
   private baseActivityUrl = 'http://localhost:3000/activities';
-  private baseAllActivityUrl = 'http://localhost:3000/all-activities';
-  private baseCompletedActivityUrl = 'http://localhost:3000/completed-activities';
+  private baseCompleteActivityUrl = 'http://localhost:3000/activities?complete=true';
+  private baseFavoriteActivityUrl = 'http://localhost:3000/activities?favorite=true';
 
   constructor(private httpclient: HttpClient) {}
 // user data service==========
@@ -33,30 +32,35 @@ export class AppService {
     );
   }
 
-  putUser(id:string,data:ShowAllCategroiesModel){
+  putActivity(id:string,data:ShowAllCategroiesModel){
     return this.httpclient.put<ShowAllCategroiesModel>(this.baseActivityUrl + "/"+id,data)
   }
-
-
-  //  all activities data service ================
-  getallactivityLocation(): Observable<MyActivityModel[]> {
-    return this.httpclient.get<MyActivityModel[]>(this.baseAllActivityUrl);
-  }
-
+  
   deleteActivities(id:string){
-    return this.httpclient.delete(this.baseAllActivityUrl+"/"+id);
+    return this.httpclient.delete(this.baseActivityUrl+"/"+id);
   }
 
- 
+  // completed activity location
+
+  getCompleteActivityLocation(): Observable<any> {
+    return this.httpclient.get(this.baseCompleteActivityUrl);
+  }
+
+  // favorite activity location
+
+  getFavoriteActivityLocation(): Observable<any> {
+    return this.httpclient.get(this.baseFavoriteActivityUrl);
+  }
+
+//  filter data by date
+ today = new Date().toISOString().split('T')[0];
+
+ dateFilter(){
+  return this.httpclient.get('http://localhost:3000/activities?submitDate='+this.today);
+ }
 
 
-  //  acitivity-details service ===============
-  getActivityByID(id:string):Observable<ShowAllCategroiesModel>{
-    return this.httpclient.get<ShowAllCategroiesModel>(this.baseActivityUrl+"/"+id);
-  }
- 
-  deleteEvents(id:string){
-    return this.httpclient.delete(this.baseActivityUrl+"/events/"+id);
-  }
+
+
 
 }
