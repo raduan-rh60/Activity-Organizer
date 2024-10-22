@@ -68,6 +68,7 @@ showEditData(row:any){
   this.edit=true;
     this.formValue.reset();
     this.getAllActivityInfo();
+    location.reload();
   })
 }
 

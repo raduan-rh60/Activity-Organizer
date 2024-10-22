@@ -59,8 +59,10 @@ export class AppService {
   return this.httpclient.get('http://localhost:3000/activities?submitDate='+this.today);
  }
 
-
-
+// add user for signup
+postUser(data:UserModel){
+  return this.httpclient.post<UserModel>(this.baseUserUrl,data);
+}
 
 
 }

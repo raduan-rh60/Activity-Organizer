@@ -1,5 +1,6 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import {
+  Router,
   RouterLink,
   RouterOutlet,
 } from '@angular/router';
@@ -42,14 +43,15 @@ export class ShowAllCategroiesComponent implements OnInit {
 
   constructor(
     private appservice: AppService,
-    private formbuilder: FormBuilder
+    private formbuilder: FormBuilder,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
       activityName: [''],
       activityCategory: [''],
-      modifiedDate: [''],
+      modifiedDate: [this.today],
       activityShortDescription: [''],
       submitDate: [''],
       submitTime: [''],
@@ -70,6 +72,7 @@ export class ShowAllCategroiesComponent implements OnInit {
       (res) => {
         this.getActivityInfo();
         alert('added Successful');
+       location.reload();
       });
   }
   clickAddActivity() {
@@ -85,7 +88,7 @@ export class ShowAllCategroiesComponent implements OnInit {
     console.log( this.saveButton);
     this.formValue.controls['activityName'].setValue(row.activityName);
     this.formValue.controls['activityCategory'].setValue(row.activityCategory);
-    this.formValue.controls['modifiedDate'].setValue(row.modifiedDate);
+    this.formValue.controls['modifiedDate'].setValue(this.today);
     this.formValue.controls['activityShortDescription'].setValue(row.activityShortDescription);
     this.formValue.controls['submitDate'].setValue(row.submitDate);
     this.formValue.controls['submitTime'].setValue(row.submitTime);
@@ -99,6 +102,7 @@ export class ShowAllCategroiesComponent implements OnInit {
       alert('update successfully');
       this.formValue.reset();
       this.getActivityInfo();
+      location.reload();
     })
 }
 
