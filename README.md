@@ -37,7 +37,7 @@ and can haave options to edita and delete.</dd>
 
 <dt>Favorite activities: <br></dt>
 <dd>this page will only show the favorite activities similar view as the my activities page table formate.</dd>
-
+</dl>
 # How to run 
 Firstly you have to create environment for angular in your PC then follow the following steps. <br>
 step 1: open terminal on the project directory <br>
