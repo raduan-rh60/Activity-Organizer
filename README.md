@@ -1,9 +1,8 @@
 # Activity-Organizer
-Developer:Md. Raduanul Haque.
+Developer: Md. Raduanul Haque.
+this is a project based on Angular verison 18 with bootstrap.
 
-this is a project based on Angular and json queries.
-
-# Description
+# How it works
 in this project we have these following pages:
 1. Landing page.
 2. Login page.
@@ -16,6 +15,7 @@ the dashboard page hase the following component
 3. Completed activities (only completed activities will be shown.)
 4. Favorite activities (only favorite activities will be shown.)
 
+# Functionality Overview
 Today Activity page:
 this is the first dynamic page when user will redirect after login.
 Here is these option availabe 
