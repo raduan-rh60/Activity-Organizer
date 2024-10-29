@@ -16,26 +16,27 @@ the dashboard page hase the following component
 4. Favorite activities (only favorite activities will be shown.)
 
 # Functionality Overview
-Today Activity page:<br>
-this is the first dynamic page when user will redirect after login.
+<dl>
+<dt>Today Activity page:<br></dt>
+<dd>this is the first dynamic page when user will redirect after login. </dd>
 Here is these option availabe <br>
 <dl>
     <dt>1. add button: <br></dt>
         <dd>this button will popup a form where we can add activities.<br></dd>
-    2. activity template:<br>
-        in this area all the activities of current date will show up.
-        if there is no activity available for today then it will show a message in the body and a button redirect to the my activities page<br>
+    <dt>2. activity template:<br></dt>
+       <dd> in this area all the activities of current date will show up.<br>
+        if there is no activity available for today then it will show a message in the body and a button redirect to the my activities page<br></dd>
 </dl>
-my activity page: <br>
-in this page there will be three dynamic box showing each of them count of (all activities, favorite activities, completed activities)
-and all the activities will be shown after the boxes in a table formate.
-and can haave options to edita and delete.
+<dt>my activity page: <br></dt>
+<dd>in this page there will be three dynamic box showing each of them count of (all activities, favorite activities, completed activities)<br>
+and all the activities will be shown after the boxes in a table formate.<br>
+and can haave options to edita and delete.</dd>
 
-Completed Activity page: <br>
-this page will only show the filtered completed activities similar view as the my activities page table formate
+<dt>Completed Activity page: <br></dt>
+<dd>this page will only show the filtered completed activities similar view as the my activities page table formate.</dd>
 
-Favorite activities: <br>
-this page will only show the favorite activities similar view as the my activities page table formate.
+<dt>Favorite activities: <br></dt>
+<dd>this page will only show the favorite activities similar view as the my activities page table formate.</dd>
 
 # How to run 
 Firstly you have to create environment for angular in your PC then follow the following steps. <br>
