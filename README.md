@@ -21,9 +21,9 @@ the dashboard page hase the following component
 <dd>this is the first dynamic page when user will redirect after login. </dd>
 Here is these option availabe <br>
 <dl>
-    <dt>1. add button: <br></dt>
+    <dt>   1. add button: <br></dt>
         <dd>this button will popup a form where we can add activities.<br></dd>
-    <dt>2. activity template:<br></dt>
+    <dt>    2. activity template:<br></dt>
        <dd> in this area all the activities of current date will show up.<br>
         if there is no activity available for today then it will show a message in the body and a button redirect to the my activities page<br></dd>
 </dl>
@@ -38,6 +38,7 @@ and can haave options to edita and delete.</dd>
 <dt>Favorite activities: <br></dt>
 <dd>this page will only show the favorite activities similar view as the my activities page table formate.</dd>
 </dl>
+
 # How to run 
 Firstly you have to create environment for angular in your PC then follow the following steps. <br>
 step 1: open terminal on the project directory <br>
