@@ -18,12 +18,12 @@ the dashboard page hase the following component
 # Functionality Overview
 Today Activity page:<br>
 this is the first dynamic page when user will redirect after login.
-Here is these option availabe 
+Here is these option availabe <br>
     1. add button: <br>
-        this button will popup a form where we can add activities.
+        this button will popup a form where we can add activities.<br>
     2. activity template:<br>
         in this area all the activities of current date will show up.
-        if there is no activity available for today then it will show a message in the body and a button redirect to the my activities page
+        if there is no activity available for today then it will show a message in the body and a button redirect to the my activities page<br>
 
 my activity page: <br>
 in this page there will be three dynamic box showing each of them count of (all activities, favorite activities, completed activities)
