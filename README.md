@@ -1,5 +1,5 @@
 # Activity-Organizer
-Developer: Md. Raduanul Haque.
+Developer: Md. Raduanul Haque.<br>
 this is a project based on Angular verison 18 with bootstrap.
 
 # How it works
